@@ -7,6 +7,7 @@ import com.gluonhq.charm.glisten.control.TextField;
 import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.canvas.Canvas;
 
 public class SecondaryPresenter {
@@ -19,10 +20,8 @@ public class SecondaryPresenter {
 
     public void initialize() {
         secondary.setShowTransitionFactory(BounceInRightTransition::new);
-        
-        canvas = new Canvas();
-        canvas.setWidth(Double.MAX_VALUE);
-        canvas.setHeight(Double.MAX_VALUE);
+
+        canvas.setCursor(Cursor.CROSSHAIR);
         
         ScoreCounter counter = new ScoreCounter();
         

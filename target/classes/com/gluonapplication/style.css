@@ -6,3 +6,7 @@
 Text {
     -fx-font-size: 40px;
 }
+
+Pane {
+    -fx-background-image: url("/wall.png");
+}
