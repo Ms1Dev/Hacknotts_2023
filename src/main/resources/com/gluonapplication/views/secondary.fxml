@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.BottomNavigation?>
+<?import com.gluonhq.charm.glisten.control.BottomNavigationButton?>
 <?import com.gluonhq.charm.glisten.mvc.View?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 
-
-<View fx:id="secondary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@secondary.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.SecondaryPresenter">
+<View fx:id="secondary" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@secondary.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.SecondaryPresenter">
+   <bottom>
+      <BottomNavigation BorderPane.alignment="CENTER">
+          <actionItems>
+              <BottomNavigationButton selected="true" text="Recent" />
+              <BottomNavigationButton prefHeight="84.0" prefWidth="162.0" text="Nearby" />
+          </actionItems>
+      </BottomNavigation>
+   </bottom>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="This is Secondary!" />
-         </children>
-      </VBox>
+      <Canvas fx:id="canvas" height="200.0" width="200.0" BorderPane.alignment="CENTER" />
    </center>
 </View>
