@@ -18,8 +18,11 @@ public class ScoreCounter extends TextFlow {
     Text text;
     private double increment,score;
     final static int FREQ = 500;
+    Thread counterThread;
+    boolean counting;
     
     ScoreCounter() {
+        counting = false;
         score = 0;
         increment = 1;
         text = new Text("0 ");
@@ -29,23 +32,28 @@ public class ScoreCounter extends TextFlow {
         this.setPadding(new Insets(10, 0, 10,0));
         this.setHeight(30);
         this.setWidth(Double.MAX_VALUE);
-        
-        Thread counterThread = new Thread() {
-            public void run() {
-                try {
-                    while(true){
-                        Thread.sleep(FREQ);
-                        updateScore();  
+    }
+    
+    public void start() {
+        if (!counting) {
+            counting = true;
+            counterThread = new Thread() {
+                public void run() {
+                    try {
+                        while(true){
+                            Thread.sleep(FREQ);
+                            updateScore();  
+                        }
                     }
+                    catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                
-            }
-        };
-        counterThread.setDaemon(true);
-        counterThread.start();
+            };
+            counterThread.setDaemon(true);
+            counterThread.start();
+        }
     }
     
     private void updateScore() {

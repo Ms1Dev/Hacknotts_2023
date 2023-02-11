@@ -5,11 +5,15 @@ import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.control.AppBar;
 import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -26,6 +30,10 @@ public class SecondaryPresenter {
     Pane mainPane;
     
     GraphicsContext graphics;
+    
+    ScoreCounter counter;
+    
+    Thread paintCheckerThread;
 
 
     public void initialize() {
@@ -41,11 +49,10 @@ public class SecondaryPresenter {
         canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent me) {
                 graphics.fillOval((me.getX() - CIRCLE_RAD),(me.getY() - CIRCLE_RAD), (2*CIRCLE_RAD), (2*CIRCLE_RAD));
-                
             }
         });
         
-        ScoreCounter counter = new ScoreCounter();
+        counter = new ScoreCounter();
         
         secondary.setTop(counter);
         
@@ -59,28 +66,50 @@ public class SecondaryPresenter {
                         counter.increaseIncrement(0.2)));
             }
         });
+        
+        paintCheckerThread = new Thread() {
+            public void run() {
+                try {
+                    while(true){
+                        Thread.sleep(500);
+                        Platform.runLater(()->checkIsPainted());
+                    }
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                
+            }
+        };
+        paintCheckerThread.setDaemon(true);
+        paintCheckerThread.start();
+    }
+    
+    private void checkIsPainted() {
+        if (isPainted()) {
+            counter.start();
+        }
     }
     
             
-    private boolean isPainted() {
-        boolean painted = false;
-            double x = canvas.getLayoutX();
-            double y = canvas.getLayoutY();
-            
-            int xPixels = (int) (canvas.getWidth() / CIRCLE_RAD);
-            int yPixels = (int) (canvas.getHeight() / CIRCLE_RAD);
-            
-            for(int i = 0; i < xPixels; i++) {
-                x += CIRCLE_RAD;
-                for(int j = 0; j < yPixels; j++) {
-                    y += CIRCLE_RAD;
-//                    WritableImage image = canvas.s
+    private boolean isPainted() {        
+        Bounds bounds = canvas.getBoundsInLocal();
+        
+        int x = (int) bounds.getMinX();
+
+        WritableImage image = canvas.snapshot(new SnapshotParameters(), null);
+        PixelReader pReader = image.getPixelReader();
+        
+        while(x < bounds.getMaxX() - (2 * CIRCLE_RAD)) {
+            x += CIRCLE_RAD;
+            int y = (int) bounds.getMinY();
+            while(y < bounds.getMaxY() - CIRCLE_RAD) {
+                y += CIRCLE_RAD;
+                if (pReader.getColor(x, y).equals(Color.valueOf("0xffffffff"))){
+                    return false;
                 }
             }
-            // for pixels x
-                // for pixels y
-                    // painted = pixel at x,y has colour 
-        
-        return painted;
+        }  
+        return true;
     }
 }
