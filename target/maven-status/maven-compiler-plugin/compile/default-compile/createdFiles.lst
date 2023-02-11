@@ -1,0 +1,6 @@
+com\gluonapplication\DrawerManager.class
+com\gluonapplication\views\PrimaryPresenter.class
+com\gluonapplication\GluonApplication.class
+com\gluonapplication\views\SecondaryView.class
+com\gluonapplication\views\SecondaryPresenter.class
+com\gluonapplication\views\PrimaryView.class
