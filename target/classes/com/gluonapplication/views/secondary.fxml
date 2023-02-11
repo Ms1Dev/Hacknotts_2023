@@ -11,15 +11,15 @@
    <bottom>
       <BottomNavigation BorderPane.alignment="CENTER">
           <actionItems>
-              <BottomNavigationButton selected="true" text="Recent" />
               <BottomNavigationButton prefHeight="84.0" prefWidth="162.0" text="Nearby" />
+              <BottomNavigationButton selected="true" text="Recent" />
           </actionItems>
       </BottomNavigation>
    </bottom>
    <center>
       <Pane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="200.0" opacity="0.5" width="200.0" />
+            <Canvas fx:id="canvas" height="200.0" opacity="0.9" width="200.0" />
          </children>
       </Pane>
    </center>
