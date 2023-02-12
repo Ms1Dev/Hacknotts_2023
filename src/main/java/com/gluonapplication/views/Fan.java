@@ -56,6 +56,11 @@ public class Fan {
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
                 break;
+            case 3:
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Gaming-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Gaming-002.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Gaming-003.png");
+                break;
             default:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");

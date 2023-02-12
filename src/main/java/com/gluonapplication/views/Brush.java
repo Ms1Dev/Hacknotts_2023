@@ -35,7 +35,7 @@ public class Brush {
     
     public void incLevel() {
         if (level < 3) {
-           level++; 
+           level++;
         }
     }
     
@@ -53,10 +53,10 @@ public class Brush {
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
             case 2:
-                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painter-001.png");
                 break;
             default:
-                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painter-001.png");
                 break;
         }
         

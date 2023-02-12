@@ -18,12 +18,12 @@
    <center>
       <VBox alignment="CENTER" prefHeight="180.0" prefWidth="350.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="764.0" prefWidth="350.0" VBox.vgrow="ALWAYS">
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="764.0" prefWidth="350.0" vvalue="1.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <content>
-                  <VBox prefHeight="502.0" prefWidth="338.0">
+                  <VBox prefHeight="1049.0" prefWidth="338.0">
                      <children>
                         <Label text="Brushes">
                            <font>
@@ -106,7 +106,7 @@
                                     <Image url="@../../../Assets/SPRITES/Fan-Hand/Fan-Hand-001.png" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Hand Fan" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="handFanButton" mnemonicParsing="false" onAction="#buyHandFan" prefHeight="35.0" prefWidth="115.0" text="Hand Fan | 150" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -123,7 +123,7 @@
                                     <Image url="@../../../Assets/SPRITES/Fan-Ped/Fan-Ped-001.png" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Table Fan" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="tableFanButton" mnemonicParsing="false" onAction="#buyTableFan" prefHeight="35.0" prefWidth="114.0" text="Table Fan | 400" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -135,8 +135,11 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Fan-Gaming/Fan-Gaming-001.png" />
+                                 </image></ImageView>
+                              <Button fx:id="pcFanButton" mnemonicParsing="false" onAction="#buyPcFan" prefHeight="35.0" prefWidth="118.0" text="Gaming PC | 700" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>

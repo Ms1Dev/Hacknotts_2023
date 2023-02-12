@@ -25,6 +25,12 @@ public class UpgradesPresenter {
     private Button highlighterButton;
     @FXML
     private Button brushButton;
+    @FXML
+    private Button handFanButton;
+    @FXML
+    private Button tableFanButton;
+    @FXML
+    private Button pcFanButton;
 
     public void initialize() {
         upgrades.setShowTransitionFactory(BounceInLeftTransition::new);
@@ -54,9 +60,9 @@ public class UpgradesPresenter {
     @FXML
     private void buyHighlighter() {
         User user = User.getInstance();
-        if (user.getUserScore() >= 100) {
-            user.setUserScore(user.getUserScore() - 100);
-            user.getPaint().incLevel();
+        if (user.getUserScore() >= 300) {
+            user.setUserScore(user.getUserScore() - 300);
+            user.getBrush().incLevel();
             highlighterButton.setDisable(true);
         }
     }
@@ -64,10 +70,40 @@ public class UpgradesPresenter {
     @FXML
     private void buyBrush() {
         User user = User.getInstance();
-        if (user.getUserScore() >= 100) {
-            user.setUserScore(user.getUserScore() - 100);
-            user.getFan().incLevel();
+        if (user.getUserScore() >= 600) {
+            user.setUserScore(user.getUserScore() - 600);
+            user.getBrush().incLevel();
             brushButton.setDisable(true);
+        }
+    }
+    
+    @FXML
+    private void buyHandFan() {
+        User user = User.getInstance();
+        if (user.getUserScore() >= 150) {
+            user.setUserScore(user.getUserScore() - 150);
+            user.getFan().incLevel();
+            handFanButton.setDisable(true);
+        }
+    }
+        
+    @FXML
+    private void buyTableFan() {
+        User user = User.getInstance();
+        if (user.getUserScore() >= 400) {
+            user.setUserScore(user.getUserScore() - 400);
+            user.getFan().incLevel();
+            tableFanButton.setDisable(true);
+        }
+    }
+        
+    @FXML
+    private void buyPcFan() {
+        User user = User.getInstance();
+        if (user.getUserScore() >= 700) {
+            user.setUserScore(user.getUserScore() - 700);
+            user.getFan().incLevel();
+            pcFanButton.setDisable(true);
         }
     }
 }
