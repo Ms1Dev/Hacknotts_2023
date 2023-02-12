@@ -52,7 +52,7 @@ public class Fan {
     private static AnimatedSprite selectAnimation(level lvl) {
          ArrayList<String> imageUrls = new ArrayList<>();
         switch (lvl) {
-            case ONE:             
+            case ONE:                        
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-003.png");

@@ -26,13 +26,13 @@ public class Brush {
         this.lvl = lvl;
         switch(lvl) {
             case ONE:
-                this.radius = 10;
-                break;
-            case TWO:
                 this.radius = 25;
                 break;
+            case TWO:
+                this.radius = 30;
+                break;
             case THREE:
-                this.radius = 35;
+                this.radius = 40;
                 break;
             case FOUR:
                 this.radius = 50;
@@ -52,13 +52,13 @@ public class Brush {
     public void setRadius(level lvl) {
         switch(lvl) {
             case ONE:
-                this.radius = 10;
-                break;
-            case TWO:
                 this.radius = 25;
                 break;
+            case TWO:
+                this.radius = 30;
+                break;
             case THREE:
-                this.radius = 35;
+                this.radius = 40;
                 break;
             case FOUR:
                 this.radius = 50;

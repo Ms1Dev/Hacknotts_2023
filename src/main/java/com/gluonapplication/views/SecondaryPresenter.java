@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class SecondaryPresenter {
-    private long userScore = 0;
+    public static long userScore = 0;
     
     private int brushRadius = 25;
 
@@ -31,9 +31,9 @@ public class SecondaryPresenter {
     @FXML
     Pane mainPane;
     
-    Brush brush;
-    Fan fan;
-    Paint paint;
+    static Brush brush;
+    static Fan fan;
+    static Paint paint;
     
     DryingProgress progressBar;
     
@@ -96,13 +96,13 @@ public class SecondaryPresenter {
         }
     }
     
-    public void setFan(Brush brush) {
+    public void setBrush(Brush brush) {
         if (!appThread.isAlive()) {
             this.brush = brush;
         }
     }
     
-    public void setFan(Paint paint) {
+    public void setPaint(Paint paint) {
         if (!appThread.isAlive()) {
             this.paint = paint;
         }
