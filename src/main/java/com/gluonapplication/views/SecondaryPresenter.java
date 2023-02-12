@@ -130,12 +130,12 @@ public class SecondaryPresenter {
             public void handle(MouseEvent me) {
                 if (!appThread.isAlive()) {
                     graphics.fillOval((me.getX() - brushRadius),(me.getY() - brushRadius), (2*brushRadius), (2*brushRadius));
-                    fanAnimation.setX(me.getX() - 25);
-                    fanAnimation.setY(me.getY() - 25);
-                }
-                else {
                     brushAnimation.setX(me.getX() - 25);
                     brushAnimation.setY(me.getY() - 25);
+                }
+                else {
+                    fanAnimation.setX(me.getX() - 25);
+                    fanAnimation.setY(me.getY() - 25);
                 }
             }
         });
@@ -144,12 +144,16 @@ public class SecondaryPresenter {
             public void handle(MouseEvent me) {
                 if (appThread.isAlive()) {
                     appThread.setFrequency(fan.getSpeedIncreasePrcnt());
-                    brushAnimation.setVisible(true);
-                    fanAnimation.setVisible(false);
-                }
-                else {
                     brushAnimation.setVisible(false);
                     fanAnimation.setVisible(true);
+                    fanAnimation.setX(me.getX() - 25);
+                    fanAnimation.setY(me.getY() - 25);
+                }
+                else {
+                    brushAnimation.setVisible(true);
+                    brushAnimation.setX(me.getX() - 25);
+                    brushAnimation.setY(me.getY() - 25);
+                    fanAnimation.setVisible(false);
                     
                 }
                 secondary.setCursor(Cursor.NONE);

@@ -34,19 +34,13 @@ public class Brush {
          ArrayList<String> imageUrls = new ArrayList<>();
         switch (id) {
             case 0:             
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Hand/Brush-Hand-001.png");
                 break;
             case 1:
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
             case 2:
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                imageUrls.add("file:C:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
                 break;
         }
         return new AnimatedSprite(imageUrls);
