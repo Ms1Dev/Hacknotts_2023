@@ -9,9 +9,59 @@ package com.gluonapplication.views;
  * @author jakem
  */
 public class User {
-    public static Brush brush;
-    public static Fan fan;
-    public static Paint paint;
+    private Brush brush;
+    private Fan fan;
+    private Paint paint;
     
-    public static long userScore = 0;
+    private long userScore;
+    
+    private static User instance;
+    
+    private User(){
+        userScore = 0;
+        brush = new Brush();
+        fan = new Fan(Fan.level.ONE);
+        paint = new Paint(Paint.level.ONE);
+    }
+    
+    public static User getInstance() {
+        if (instance == null) {
+            instance = new User();
+        }
+        return instance;
+    }
+
+    public Brush getBrush() {
+        return brush;
+    }
+
+    public void setBrush(Brush brush) {
+        this.brush = brush;
+    }
+
+    public Fan getFan() {
+        return fan;
+    }
+
+    public void setFan(Fan fan) {
+        this.fan = fan;
+    }
+
+    public Paint getPaint() {
+        return paint;
+    }
+
+    public void setPaint(Paint paint) {
+        this.paint = paint;
+    }
+
+    public long getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(long userScore) {
+        this.userScore = userScore;
+    }
+        
+    
 }

@@ -35,10 +35,11 @@ public class UpgradesPresenter {
     }
     
     @FXML
-    private void buyHand() {       
-        if (User.userScore >= 100) {
-            User.userScore -= 100;
-            User.brush.setRadius(Brush.level.TWO);
+    private void buyHand() {     
+        User user = User.getInstance();
+        if (user.getUserScore() >= 100) {
+            user.setUserScore(user.getUserScore() - 100);
+            user.getBrush().incLevel();
         }
         
     }

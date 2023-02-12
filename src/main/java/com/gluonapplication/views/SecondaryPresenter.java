@@ -3,6 +3,7 @@ package com.gluonapplication.views;
 import com.gluonhq.charm.glisten.animation.BounceInRightTransition;
 import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.control.AppBar;
+import com.gluonhq.charm.glisten.control.LifecycleEvent;
 import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.application.Platform;
@@ -49,7 +50,7 @@ public class SecondaryPresenter {
     public void initialize() {    
         running = false;
         secondary.setShowTransitionFactory(BounceInRightTransition::new);
-        counter = new ScoreCounter(User.userScore);    
+        counter = new ScoreCounter();    
         progressBar = new DryingProgress();
         secondary.setTop(counter);
         secondary.setBottom(progressBar);
@@ -64,16 +65,21 @@ public class SecondaryPresenter {
             }
         });
                
-        User.brush = new Brush(Brush.level.ONE);
-        User.paint = new Paint(Paint.level.ONE);
-        User.fan = new Fan(Fan.level.ONE);
+        User user = User.getInstance();
 
-        brushAnimation = User.brush.getAnimation();
-        fanAnimation = User.fan.getAnimation();
+        brushAnimation = User.getInstance().getBrush().getAnimation();
+        fanAnimation = User.getInstance().getFan().getAnimation();
         brushAnimation.setVisible(false);
         fanAnimation.setVisible(false);
         secondary.getChildren().add(brushAnimation);
         secondary.getChildren().add(fanAnimation);
+        
+        secondary.setOnShowing(new EventHandler<LifecycleEvent>(){ 
+            public void handle(LifecycleEvent le) {
+                counter.updateScore_();
+                brushRadius = User.getInstance().getBrush().getRadius();
+            }
+        });
 
         startGame();
     }
@@ -87,25 +93,26 @@ public class SecondaryPresenter {
     
     public void setFan(Fan fan) {
         if (!appThread.isAlive()) {
-            User.fan = fan;
+            User.getInstance().setFan(fan);
         }
     }
     
     public void setBrush(Brush brush) {
         if (!appThread.isAlive()) {
-            User.brush = brush;
+            User.getInstance().setBrush(brush);
         }
     }
     
     public void setPaint(Paint paint) {
         if (!appThread.isAlive()) {
-            User.paint = paint;
+            User.getInstance().setPaint(paint);
         }
     }
 
     public void startGame() {
-        brushRadius = User.brush.getRadius();
-        counter.reset(User.paint.getPointIncrement());
+        brushRadius = User.getInstance().getBrush().getRadius();
+        counter.reset();
+        progressBar.reset();
         
         appThread = new AppThread(counter,progressBar,this);
         
@@ -113,7 +120,7 @@ public class SecondaryPresenter {
         canvas.heightProperty().bind(mainPane.heightProperty());
         
         graphics = canvas.getGraphicsContext2D();
-        graphics.setFill(User.paint.getColour());
+        graphics.setFill(User.getInstance().getPaint().getColour());
         
         
         
@@ -134,7 +141,7 @@ public class SecondaryPresenter {
         canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent me) {
                 if (appThread.isAlive()) {
-                    appThread.setFrequency(User.fan.getSpeedIncreasePrcnt());
+                    appThread.setFrequency(User.getInstance().getFan().getSpeedIncreasePrcnt());
                     brushAnimation.setVisible(false);
                     fanAnimation.setVisible(true);
                     fanAnimation.setX(me.getX() - 25);

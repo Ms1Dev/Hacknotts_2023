@@ -17,13 +17,11 @@ import javafx.scene.text.TextFlow;
 public class ScoreCounter extends TextFlow {
     Text text;
     private double increment;
-    private long score;
     final static int FREQ = 500;
-    Thread counterThread;
     boolean counting;
     
-    ScoreCounter(long userScore) {
-        this.score = userScore;
+    ScoreCounter() {
+        increment = 10;
         text = new Text();
         text.setText("0 ");
         this.getChildren().add(text);
@@ -33,17 +31,24 @@ public class ScoreCounter extends TextFlow {
         this.setWidth(Double.MAX_VALUE);
     }
     
-    public void reset(int increment) {
+    public void updateScore_() {
+        String scoreText = String.valueOf(User.getInstance().getUserScore());
+        text.setText(scoreText);
+    }
+    
+    public void reset() {
         counting = false;
-        this.increment = increment;
         text.applyCss();
     }
 
     public void updateScore() {
+        User user = User.getInstance();
+        long score = user.getUserScore();
         if (counting) {
-            score += increment;
+            score += (long) increment;
             String scoreText = String.valueOf(score);
             text.setText(scoreText);
+            user.setUserScore(score);
         }
     }
     

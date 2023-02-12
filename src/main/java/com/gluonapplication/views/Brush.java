@@ -12,77 +12,41 @@ import java.util.ArrayList;
  */
 public class Brush {
     
-    static enum level {
-        ONE,
-        TWO,
-        THREE,
-        FOUR
-    }
-    private level lvl;
-    
-    private int radius;
-
-    public Brush(level lvl) {
-        this.lvl = lvl;
-        switch(lvl) {
-            case ONE:
-                this.radius = 25;
-                break;
-            case TWO:
-                this.radius = 30;
-                break;
-            case THREE:
-                this.radius = 40;
-                break;
-            case FOUR:
-                this.radius = 50;
-                break;
-            default:
-                this.radius = 10;
-                break;
-        }
-        
-//        this.radius = radius;
-    }
+    static int level = 0;
 
     public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(level lvl) {
-        switch(lvl) {
-            case ONE:
-                this.radius = 25;
-                break;
-            case TWO:
-                this.radius = 30;
-                break;
-            case THREE:
-                this.radius = 40;
-                break;
-            case FOUR:
-                this.radius = 50;
-                break;
+        switch(level) {
+            case 0:
+                return 50;
+            case 1:
+                return 80;
+            case 2:
+                return 40;
+            case 3:
+                return 50;
             default:
-                this.radius = 10;
-                break;
+                return 10;
         }
+    }
+    
+    public void incLevel() {
+        level++;
     }
     
     public AnimatedSprite getAnimation() {
-        return selectAnimation(this.lvl);
+        return selectAnimation(level);
     }
     
-    private static AnimatedSprite selectAnimation(level lvl) {
+    private static AnimatedSprite selectAnimation(int lvl) {
         ArrayList<String> imageUrls = new ArrayList<>();
         switch (lvl) {
-            case ONE:             
+            case 0:             
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Hand/Brush-Hand-001.png");
                 break;
-            case TWO:
+            case 1:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
-            case THREE:
+            case 2:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
                 break;
         }
