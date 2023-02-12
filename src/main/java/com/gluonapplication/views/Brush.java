@@ -11,19 +11,60 @@ import java.util.ArrayList;
  * @author mdswa
  */
 public class Brush {
+    enum level {
+        ONE,
+        TWO,
+        THREE,
+        FOUR
+    }
+    
     private int radius;
     private int fanLevel = 0;
 
-    public Brush(int radius) {
-        this.radius = radius;
+    public Brush(level l) {
+        switch(l) {
+            case ONE:
+                this.radius = 10;
+                break;
+            case TWO:
+                this.radius = 25;
+                break;
+            case THREE:
+                this.radius = 35;
+                break;
+            case FOUR:
+                this.radius = 50;
+                break;
+            default:
+                this.radius = 10;
+                break;
+        }
+        
+//        this.radius = radius;
     }
 
     public int getRadius() {
         return radius;
     }
 
-    public void setRadius(int radius) {
-        this.radius = radius;
+    public void setRadius(level l) {
+        switch(l) {
+            case ONE:
+                this.radius = 10;
+                break;
+            case TWO:
+                this.radius = 25;
+                break;
+            case THREE:
+                this.radius = 35;
+                break;
+            case FOUR:
+                this.radius = 50;
+                break;
+            default:
+                this.radius = 10;
+                break;
+        }
     }
     
     public AnimatedSprite getAnimation() {

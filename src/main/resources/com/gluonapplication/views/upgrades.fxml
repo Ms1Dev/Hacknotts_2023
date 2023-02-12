@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.gluonhq.charm.glisten.mvc.View?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View fx:id="upgrades" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@primary.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.UpgradesPresenter">
+<View fx:id="upgrades" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@upgrades.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.UpgradesPresenter">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +30,7 @@
                               <Font size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="20.0" top="20.0" />
+                              <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
                         <GridPane>
@@ -41,8 +42,12 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Brush-Hand/Brush-Hand-001.png" />
+                                 </image>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Hand" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -54,8 +59,12 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Highlighter" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </GridPane>
                         <GridPane>
@@ -67,8 +76,12 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Brush-Painter/Brush-Painer-001.png" />
+                                 </image>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Brush" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <Label text="Fans">
@@ -76,7 +89,7 @@
                               <Font size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="20.0" top="20.0" />
+                              <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
                         <GridPane>
@@ -88,8 +101,12 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Fan-Hand/Fan-Hand-001.png" />
+                                 </image>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Hand Fan" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -101,8 +118,12 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@../../../Assets/SPRITES/Fan-Ped/Fan-Ped-001.png" />
+                                 </image>
+                              </ImageView>
+                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Table Fan" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -114,7 +135,7 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Icon content="LIBRARY_ADD" prefHeight="138.0" prefWidth="338.0" />
+                              <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER" />
                               <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
