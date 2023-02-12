@@ -35,7 +35,7 @@ public class GluonApplication extends Application {
         Swatch.BLUE.assignTo(scene);
 
         scene.getStylesheets().add(GluonApplication.class.getResource("style.css").toExternalForm());
-        ((Stage) scene.getWindow()).getIcons().add(new Image(GluonApplication.class.getResourceAsStream("/icon.png")));
+        ((Stage) scene.getWindow()).getIcons().add(new Image(GluonApplication.class.getResourceAsStream("/Logo.png")));
     }
 
     public static void main(String args[]) {

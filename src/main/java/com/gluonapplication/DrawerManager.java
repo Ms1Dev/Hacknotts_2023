@@ -22,7 +22,7 @@ public class DrawerManager {
         
         NavigationDrawer.Header header = new NavigationDrawer.Header("Paint Drying Simulator",
                 "Watch Paint Dry!",
-                new Avatar(21, new Image(DrawerManager.class.getResourceAsStream("/icon.png"))));
+                new Avatar(21, new Image(DrawerManager.class.getResourceAsStream("/Logo.png"))));
         drawer.setHeader(header);
         
         final Item primaryItem = new ViewItem("Upgrades", MaterialDesignIcon.ARROW_UPWARD.graphic(), PRIMARY_VIEW, ViewStackPolicy.SKIP);
