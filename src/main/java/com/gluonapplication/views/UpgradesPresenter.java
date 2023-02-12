@@ -53,11 +53,21 @@ public class UpgradesPresenter {
     
     @FXML
     private void buyHighlighter() {
-        // Stub
+        User user = User.getInstance();
+        if (user.getUserScore() >= 100) {
+            user.setUserScore(user.getUserScore() - 100);
+            user.getPaint().incLevel();
+            highlighterButton.setDisable(true);
+        }
     }
     
     @FXML
     private void buyBrush() {
-        // Stub
+        User user = User.getInstance();
+        if (user.getUserScore() >= 100) {
+            user.setUserScore(user.getUserScore() - 100);
+            user.getFan().incLevel();
+            brushButton.setDisable(true);
+        }
     }
 }

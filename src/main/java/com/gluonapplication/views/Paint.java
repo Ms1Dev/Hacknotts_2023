@@ -20,6 +20,10 @@ public class Paint {
         }
     }
 
+    public void setLevel(int level){
+        this.level = level;
+    }
+    
     public Color getColour() {
         
         switch(level) {
@@ -36,19 +40,19 @@ public class Paint {
         } 
     }
 
-     public int getPointIncrement() {
+     public double getPointIncrement() {
         
         switch(level) {
             case 0:
-                return 3;
+                return 0.5;
             case 1:
-                return 5;
+                return 1.2;
             case 2:
-                return 6;
+                return 1.5;
             case 3:
-                return 8;
+                return 2.2;
             default:
-                return 10;
+                return 4.5;
         } 
     }
 

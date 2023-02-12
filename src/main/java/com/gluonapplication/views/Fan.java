@@ -33,6 +33,10 @@ public class Fan {
            level++; 
         }
     }
+    
+    public void setLevel(int level){
+        this.level = level;
+    }
 
     public AnimatedSprite getAnimation() {
         return selectAnimation(level);

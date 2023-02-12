@@ -17,16 +17,20 @@ public class Brush {
     public int getRadius() {
         switch(level) {
             case 0:
-                return 50;
+                return 30;
             case 1:
-                return 80;
-            case 2:
                 return 40;
-            case 3:
+            case 2:
                 return 50;
+            case 3:
+                return 60;
             default:
                 return 10;
         }
+    }
+    
+    public void setLevel(int level){
+        this.level = level;
     }
     
     public void incLevel() {

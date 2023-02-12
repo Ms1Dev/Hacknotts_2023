@@ -77,7 +77,10 @@ public class SecondaryPresenter {
         secondary.setOnShowing(new EventHandler<LifecycleEvent>(){ 
             public void handle(LifecycleEvent le) {
                 counter.updateScore_();
+                counter.increaseIncrement(User.getInstance().getPaint().getPointIncrement());
                 brushRadius = User.getInstance().getBrush().getRadius();
+                brushAnimation = User.getInstance().getBrush().getAnimation();
+                fanAnimation = User.getInstance().getFan().getAnimation();
             }
         });
 
