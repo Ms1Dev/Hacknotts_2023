@@ -16,7 +16,7 @@
 
 <View fx:id="upgrades" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" stylesheets="@upgrades.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonapplication.views.UpgradesPresenter">
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="180.0" prefWidth="350.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="764.0" prefWidth="350.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
@@ -47,7 +47,7 @@
                                     <Image url="@../../../Assets/SPRITES/Brush-Hand/Brush-Hand-001.png" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Hand" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#buyHand" prefHeight="35.0" prefWidth="101.0" text="Hand | 100" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>

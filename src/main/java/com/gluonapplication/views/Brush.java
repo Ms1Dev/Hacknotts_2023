@@ -24,13 +24,13 @@ public class Brush {
     public Brush(level l) {
         switch(l) {
             case ONE:
-                this.radius = 10;
-                break;
-            case TWO:
                 this.radius = 25;
                 break;
+            case TWO:
+                this.radius = 30;
+                break;
             case THREE:
-                this.radius = 35;
+                this.radius = 40;
                 break;
             case FOUR:
                 this.radius = 50;
@@ -50,13 +50,13 @@ public class Brush {
     public void setRadius(level l) {
         switch(l) {
             case ONE:
-                this.radius = 10;
-                break;
-            case TWO:
                 this.radius = 25;
                 break;
+            case TWO:
+                this.radius = 30;
+                break;
             case THREE:
-                this.radius = 35;
+                this.radius = 40;
                 break;
             case FOUR:
                 this.radius = 50;
@@ -75,13 +75,13 @@ public class Brush {
          ArrayList<String> imageUrls = new ArrayList<>();
         switch (id) {
             case 0:             
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Hand/Brush-Hand-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Hand/Brush-Hand-001.png");
                 break;
             case 1:
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
             case 2:
-                imageUrls.add("file:C:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
                 break;
         }
         return new AnimatedSprite(imageUrls);

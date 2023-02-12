@@ -30,15 +30,15 @@ public class Fan {
          ArrayList<String> imageUrls = new ArrayList<>();
         switch (id) {
             case 0:             
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-001.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-002.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-003.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-004.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-002.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-003.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-004.png");
                 break;
             case 1:
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
-                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
                 break;
         }
         return new AnimatedSprite(imageUrls);
