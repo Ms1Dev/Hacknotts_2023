@@ -14,8 +14,6 @@ import javafx.application.Platform;
 public class DryingProgress extends ProgressBar {
     int dryingSpeed;
     double progress;
-    Thread progressThread;
-    boolean drying;
     SecondaryPresenter presenter;
    
     DryingProgress(SecondaryPresenter presenter) {
@@ -25,38 +23,15 @@ public class DryingProgress extends ProgressBar {
     }
     
     public void reset(int dryingSpeed) {
-        drying = false;
         this.dryingSpeed = dryingSpeed;
         progress = 0.0;
         this.setProgress(progress);
     }
     
-    public void start() {
-        if (!drying) {
-            drying = true;
-            progressThread = new Thread() {
-                public void run() {
-                    try {
-                        while(getThisProgress() <= 1.0){
-                            Thread.sleep(500);
-                            updateProgress();  
-                        }
-                        Platform.runLater(()->presenter.newGame());
-                    }
-                    catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            };
-            progressThread.setDaemon(true);
-            progressThread.start();
-        }
-    }
-    
-    private void updateProgress() {
+    public boolean updateProgress() {
         progress += dryingSpeed / 1000.0;
         this.setProgress(progress);
+        return (progress >= 1.0);
     }
     
     public double getThisProgress() {

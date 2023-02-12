@@ -16,13 +16,16 @@ import javafx.scene.text.TextFlow;
  */
 public class ScoreCounter extends TextFlow {
     Text text;
-    private double increment,score;
+    private double increment;
+    private long score;
     final static int FREQ = 500;
     Thread counterThread;
     boolean counting;
     
-    ScoreCounter() {
+    ScoreCounter(long userScore) {
+        this.score = userScore;
         text = new Text();
+        text.setText("0 ");
         this.getChildren().add(text);
         this.setTextAlignment(TextAlignment.CENTER);
         this.setPadding(new Insets(10, 0, 10,0));
@@ -31,40 +34,15 @@ public class ScoreCounter extends TextFlow {
     }
     
     public void reset(int increment) {
-        score = 0;
         counting = false;
         this.increment = increment;
-        text.setText("0 ");
         text.applyCss();
     }
-    
-    public void start() {
-        if (!counting) {
-            counting = true;
-            counterThread = new Thread() {
-                public void run() {
-                    try {
-                        while(counting){
-                            Thread.sleep(FREQ);
-                            updateScore();  
-                        }
-                    }
-                    catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
 
-                }
-            };
-            counterThread.setDaemon(true);
-            counterThread.start();
-        }
-    }
-    
-    private void updateScore() {
-        if(counting) {
+    public void updateScore() {
+        if (counting) {
             score += increment;
-            int truncScore = (int) score;
-            String scoreText = String.valueOf(truncScore);
+            String scoreText = String.valueOf(score);
             text.setText(scoreText);
         }
     }

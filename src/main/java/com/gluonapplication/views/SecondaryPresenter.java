@@ -3,7 +3,6 @@ package com.gluonapplication.views;
 import com.gluonhq.charm.glisten.animation.BounceInRightTransition;
 import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.control.AppBar;
-import com.gluonhq.charm.glisten.control.ProgressBar;
 import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.application.Platform;
@@ -21,6 +20,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class SecondaryPresenter {
+    private long userScore = 0;
+    
     private int brushRadius = 25;
 
     @FXML
@@ -37,11 +38,16 @@ public class SecondaryPresenter {
     ScoreCounter counter;
     
     Thread paintCheckerThread;
+    
+    AppThread appThread;
 
+    boolean running;
+    
 
     public void initialize() {    
+        running = false;
         secondary.setShowTransitionFactory(BounceInRightTransition::new);
-        counter = new ScoreCounter();    
+        counter = new ScoreCounter(userScore);    
         progressBar = new DryingProgress(this);
         secondary.setTop(counter);
         secondary.setBottom(progressBar);
@@ -55,12 +61,13 @@ public class SecondaryPresenter {
             }
         });
         
-        Brush brush = new Brush(25);
+        Brush brush = new Brush(80);
         Paint paint = new Paint(Color.DARKGOLDENROD, 30, 1);
         startGame(paint, brush);
     }
     
     public void newGame() {
+        running = false;
         Bounds bounds = canvas.getBoundsInLocal();
         graphics.clearRect(bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
         
@@ -75,6 +82,8 @@ public class SecondaryPresenter {
         brushRadius = brush.getRadius();
         counter.reset(paint.getPointIncrement());
         progressBar.reset(paint.getDryingSpeed());
+        
+        appThread = new AppThread(counter,progressBar,this);
         
         canvas.setCursor(Cursor.CROSSHAIR);
         canvas.widthProperty().bind(mainPane.widthProperty());
@@ -109,9 +118,9 @@ public class SecondaryPresenter {
     
     
     private void checkIsPainted() {
-        if (isPainted()) {
-            counter.start();
-            progressBar.start();
+        if (isPainted() && !running) {
+            running = true;
+            appThread.start();
         }
     }
     
