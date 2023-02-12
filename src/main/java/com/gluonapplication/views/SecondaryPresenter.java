@@ -68,14 +68,14 @@ public class SecondaryPresenter {
                 AppBar appBar = AppManager.getInstance().getAppBar();
                 appBar.setNavIcon(MaterialDesignIcon.MENU.button(e -> 
                         AppManager.getInstance().getDrawer().open()));
-                appBar.setTitleText("Secondary");
+                appBar.setTitleText("Wall");
             }
         });
                
-        brush = new Brush(80);
+        brush = new Brush(Brush.level.FOUR);
         paint = new Paint(Color.DARKGOLDENROD, 30, 1);
         fan = new Fan(0.2);
-        
+
         brushAnimation = brush.getAnimation();
         fanAnimation = fan.getAnimation();
         brushAnimation.setVisible(false);
@@ -110,7 +110,7 @@ public class SecondaryPresenter {
             this.paint = paint;
         }
     }
-    
+
     public void startGame() {
         brushRadius = brush.getRadius();
         counter.reset(paint.getPointIncrement());
