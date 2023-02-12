@@ -1,7 +1,8 @@
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\GluonApplication.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\views\PrimaryView.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\DrawerManager.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\views\PrimaryPresenter.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\views\SecondaryView.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\views\ScoreCounter.java
-C:\Melon\NetBeans\GluonApplication\src\main\java\com\gluonapplication\views\SecondaryPresenter.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/GluonApplication.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/UpgradeItem.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/UpgradesPresenter.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/UpgradesView.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/SecondaryPresenter.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/SecondaryView.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/DrawerManager.java
+/home/jakem/dev/Hacknotts_2023/src/main/java/com/gluonapplication/views/ScoreCounter.java

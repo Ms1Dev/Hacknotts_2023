@@ -1,6 +1,6 @@
 package com.gluonapplication;
 
-import com.gluonapplication.views.PrimaryView;
+import com.gluonapplication.views.UpgradesView;
 import com.gluonapplication.views.SecondaryView;
 import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.visual.Swatch;
@@ -20,7 +20,7 @@ public class GluonApplication extends Application {
 
     @Override
     public void init() {
-        appManager.addViewFactory(PRIMARY_VIEW, () -> new PrimaryView().getView());
+        appManager.addViewFactory(PRIMARY_VIEW, () -> new UpgradesView().getView());
         appManager.addViewFactory(SECONDARY_VIEW, () -> new SecondaryView().getView());
 
         DrawerManager.buildDrawer(appManager);

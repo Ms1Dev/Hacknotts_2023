@@ -4,11 +4,11 @@ import com.gluonhq.charm.glisten.mvc.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 
-public class PrimaryView {
+public class UpgradesView {
 
     public View getView() {
         try {
-            View view = FXMLLoader.load(PrimaryView.class.getResource("primary.fxml"));
+            View view = FXMLLoader.load(UpgradesView.class.getResource("upgrades.fxml"));
             return view;
         } catch (IOException e) {
             System.out.println("IOException: " + e);
