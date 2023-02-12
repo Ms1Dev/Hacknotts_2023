@@ -5,7 +5,6 @@
 package com.gluonapplication.views;
 
 import com.gluonhq.charm.glisten.control.ProgressBar;
-import javafx.application.Platform;
 
 /**
  *
@@ -18,9 +17,10 @@ public class DryingProgress extends ProgressBar {
     DryingProgress() {
         this.setPrefHeight(40);
         this.setPrefWidth(350);
+        reset();
     }
     
-    public void reset(int dryingSpeed) {
+    public void reset() {
         progress = 0.0;
         this.setProgress(progress);
     }

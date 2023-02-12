@@ -127,11 +127,11 @@ public class SecondaryPresenter {
                 if (!appThread.isAlive()) {
                     graphics.fillOval((me.getX() - brushRadius),(me.getY() - brushRadius), (2*brushRadius), (2*brushRadius));
                     brushAnimation.setX(me.getX() - 25);
-                    brushAnimation.setY(me.getY() - 25);
+                    brushAnimation.setY(me.getY());
                 }
                 else {
                     fanAnimation.setX(me.getX() - 25);
-                    fanAnimation.setY(me.getY() - 25);
+                    fanAnimation.setY(me.getY());
                 }
             }
         });
@@ -143,7 +143,7 @@ public class SecondaryPresenter {
                     brushAnimation.setVisible(false);
                     fanAnimation.setVisible(true);
                     fanAnimation.setX(me.getX() - 25);
-                    fanAnimation.setY(me.getY() - 25);
+                    fanAnimation.setY(me.getY());
                 }
                 else {
                     brushAnimation.setVisible(true);
