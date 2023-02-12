@@ -30,7 +30,9 @@ public class Brush {
     }
     
     public void incLevel() {
-        level++;
+        if (level < 3) {
+           level++; 
+        }
     }
     
     public AnimatedSprite getAnimation() {
@@ -47,6 +49,9 @@ public class Brush {
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
             case 2:
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
+                break;
+            default:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
                 break;
         }
