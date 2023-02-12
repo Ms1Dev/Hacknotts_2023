@@ -36,9 +36,9 @@ public class UpgradesPresenter {
     
     @FXML
     private void buyHand() {       
-        if (SecondaryPresenter.userScore >= 100) {
-            SecondaryPresenter.userScore -= 100;
-            SecondaryPresenter.brush.setRadius(Brush.level.TWO);
+        if (User.userScore >= 100) {
+            User.userScore -= 100;
+            User.brush.setRadius(Brush.level.TWO);
         }
         
     }
