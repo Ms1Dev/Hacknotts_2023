@@ -22,16 +22,20 @@ public class ScoreCounter extends TextFlow {
     boolean counting;
     
     ScoreCounter() {
-        counting = false;
-        score = 0;
-        increment = 1;
-        text = new Text("0 ");
-        text.applyCss();
+        text = new Text();
         this.getChildren().add(text);
         this.setTextAlignment(TextAlignment.CENTER);
         this.setPadding(new Insets(10, 0, 10,0));
         this.setHeight(30);
         this.setWidth(Double.MAX_VALUE);
+    }
+    
+    public void reset(int increment) {
+        score = 0;
+        counting = false;
+        this.increment = increment;
+        text.setText("0 ");
+        text.applyCss();
     }
     
     public void start() {
@@ -40,7 +44,7 @@ public class ScoreCounter extends TextFlow {
             counterThread = new Thread() {
                 public void run() {
                     try {
-                        while(true){
+                        while(counting){
                             Thread.sleep(FREQ);
                             updateScore();  
                         }
@@ -57,13 +61,19 @@ public class ScoreCounter extends TextFlow {
     }
     
     private void updateScore() {
-        score += increment;
-        int truncScore = (int) score;
-        String scoreText = String.valueOf(truncScore);
-        text.setText(scoreText);
+        if(counting) {
+            score += increment;
+            int truncScore = (int) score;
+            String scoreText = String.valueOf(truncScore);
+            text.setText(scoreText);
+        }
     }
     
     public void increaseIncrement(double inc) {
         increment += inc;
+    }
+    
+    public void setCounting(boolean counting) {
+        this.counting = counting;
     }
 }
