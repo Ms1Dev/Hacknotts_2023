@@ -20,8 +20,8 @@ public class User {
     private User(){
         userScore = 0;
         brush = new Brush();
-        fan = new Fan(Fan.level.ONE);
-        paint = new Paint(Paint.level.ONE);
+        fan = new Fan();
+        paint = new Paint();
     }
     
     public static User getInstance() {

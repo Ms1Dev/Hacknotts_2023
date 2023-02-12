@@ -11,54 +11,48 @@ import java.util.ArrayList;
  * @author mdswa
  */
 public class Fan {
-    private double speedIncreasePrcnt;
-    enum level {
-        ONE,
-        TWO,
-        THREE,
-        FOUR
-    }
-    private level lvl;
+    private int level = 0;
 
-    public Fan(level lvl) {
-        this.lvl = lvl;
-        switch(lvl) {
-            case ONE:
-                this.speedIncreasePrcnt = .4;
-                break;
-            case TWO:
-                this.speedIncreasePrcnt = .6;
-                break;
-            case THREE:
-                this.speedIncreasePrcnt = .8;
-                break;
-            case FOUR:
-                this.speedIncreasePrcnt = 1.0;
-                break;
+    public double getSpeedIncreasePrcnt() {
+        switch(level) {
+            case 0:
+                return .4;
+            case 1:
+                return .6;
+            case 2:
+                return .8;
+            case 3:
+                return 1.0;
             default:
-                this.speedIncreasePrcnt = 0.2;
-                break;
+                return 0.2;
+        }
+    }
+    
+    public void incLevel() {
+        if (level < 3) {
+           level++; 
         }
     }
 
-    public double getSpeedIncreasePrcnt() {
-        return speedIncreasePrcnt;
-    }
-    
     public AnimatedSprite getAnimation() {
-        return selectAnimation(lvl);
+        return selectAnimation(level);
     }
     
-    private static AnimatedSprite selectAnimation(level lvl) {
+    private static AnimatedSprite selectAnimation(int lvl) {
          ArrayList<String> imageUrls = new ArrayList<>();
         switch (lvl) {
-            case ONE:                        
+            case 1:                        
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-003.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-004.png");
                 break;
-            case TWO:
+            case 2:
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
+                imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                break;
+            default:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
