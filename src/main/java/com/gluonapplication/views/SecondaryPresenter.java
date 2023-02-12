@@ -63,7 +63,8 @@ public class SecondaryPresenter {
         
         Brush brush = new Brush(80);
         Paint paint = new Paint(Color.DARKGOLDENROD, 30, 1);
-        startGame(paint, brush);
+        Fan fan = new Fan(0.2);
+        startGame(paint, brush, fan);
     }
     
     public void newGame() {
@@ -73,12 +74,12 @@ public class SecondaryPresenter {
         
         Brush brush = new Brush(50);
         Paint paint = new Paint(Color.ALICEBLUE, 30, 5);
-        
-        startGame(paint, brush);
+        Fan fan = new Fan(0.5);
+        startGame(paint, brush, fan);
     }
     
     
-    public void startGame(Paint paint, Brush brush) {
+    public void startGame(Paint paint, Brush brush, Fan fan) {
         brushRadius = brush.getRadius();
         counter.reset(paint.getPointIncrement());
         progressBar.reset(paint.getDryingSpeed());
@@ -95,6 +96,18 @@ public class SecondaryPresenter {
         canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent me) {
                 graphics.fillOval((me.getX() - brushRadius),(me.getY() - brushRadius), (2*brushRadius), (2*brushRadius));
+            }
+        });
+        
+        canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent me) {
+                appThread.setFrequency(fan.getSpeedIncreasePrcnt());
+            }
+        });
+        
+        canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent me) {
+               appThread.resetFrequency();
             }
         });
         

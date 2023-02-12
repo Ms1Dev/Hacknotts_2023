@@ -14,12 +14,14 @@ public class AppThread extends Thread {
     private ScoreCounter scoreCounter;
     private DryingProgress dryingProgress;
     private SecondaryPresenter presenter;
-    private int frequency = 800;
+    private static final int DEFAULT_FREQ = 800;
+    private int frequency = DEFAULT_FREQ;
     
     AppThread(ScoreCounter scoreCounter, DryingProgress dryingProgress, SecondaryPresenter presenter) {
         this.scoreCounter = scoreCounter;
         this.dryingProgress = dryingProgress;
         this.presenter = presenter;
+        this.setDaemon(true);
     }
     
     public void run() {
@@ -37,7 +39,11 @@ public class AppThread extends Thread {
         }
     }
     
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
+    public void setFrequency(double speedIncreasePrcnt) {
+        frequency = (int) (frequency - frequency * speedIncreasePrcnt);
+    }
+    
+    public void resetFrequency() {
+        this.frequency = DEFAULT_FREQ;
     }
 }
