@@ -20,8 +20,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class SecondaryPresenter {
-    public static long userScore = 0;
-    
+   
     private int brushRadius = 25;
 
     @FXML
@@ -30,10 +29,6 @@ public class SecondaryPresenter {
     Canvas canvas;
     @FXML
     Pane mainPane;
-    
-    static Brush brush;
-    static Fan fan;
-    static Paint paint;
     
     DryingProgress progressBar;
     
@@ -54,7 +49,7 @@ public class SecondaryPresenter {
     public void initialize() {    
         running = false;
         secondary.setShowTransitionFactory(BounceInRightTransition::new);
-        counter = new ScoreCounter(userScore);    
+        counter = new ScoreCounter(User.userScore);    
         progressBar = new DryingProgress();
         secondary.setTop(counter);
         secondary.setBottom(progressBar);
@@ -69,12 +64,12 @@ public class SecondaryPresenter {
             }
         });
                
-        brush = new Brush(Brush.level.ONE);
-        paint = new Paint(Paint.level.ONE);
-        fan = new Fan(Fan.level.ONE);
+        User.brush = new Brush(Brush.level.ONE);
+        User.paint = new Paint(Paint.level.ONE);
+        User.fan = new Fan(Fan.level.ONE);
 
-        brushAnimation = brush.getAnimation();
-        fanAnimation = fan.getAnimation();
+        brushAnimation = User.brush.getAnimation();
+        fanAnimation = User.fan.getAnimation();
         brushAnimation.setVisible(false);
         fanAnimation.setVisible(false);
         secondary.getChildren().add(brushAnimation);
@@ -92,25 +87,25 @@ public class SecondaryPresenter {
     
     public void setFan(Fan fan) {
         if (!appThread.isAlive()) {
-            this.fan = fan;
+            User.fan = fan;
         }
     }
     
     public void setBrush(Brush brush) {
         if (!appThread.isAlive()) {
-            this.brush = brush;
+            User.brush = brush;
         }
     }
     
     public void setPaint(Paint paint) {
         if (!appThread.isAlive()) {
-            this.paint = paint;
+            User.paint = paint;
         }
     }
 
     public void startGame() {
-        brushRadius = brush.getRadius();
-        counter.reset(paint.getPointIncrement());
+        brushRadius = User.brush.getRadius();
+        counter.reset(User.paint.getPointIncrement());
         
         appThread = new AppThread(counter,progressBar,this);
         
@@ -118,7 +113,7 @@ public class SecondaryPresenter {
         canvas.heightProperty().bind(mainPane.heightProperty());
         
         graphics = canvas.getGraphicsContext2D();
-        graphics.setFill(paint.getColour());
+        graphics.setFill(User.paint.getColour());
         
         
         
@@ -139,7 +134,7 @@ public class SecondaryPresenter {
         canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent me) {
                 if (appThread.isAlive()) {
-                    appThread.setFrequency(fan.getSpeedIncreasePrcnt());
+                    appThread.setFrequency(User.fan.getSpeedIncreasePrcnt());
                     brushAnimation.setVisible(false);
                     fanAnimation.setVisible(true);
                     fanAnimation.setX(me.getX() - 25);
