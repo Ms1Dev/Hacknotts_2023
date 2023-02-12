@@ -31,6 +31,10 @@ public class SecondaryPresenter {
     @FXML
     Pane mainPane;
     
+    Brush brush;
+    Fan fan;
+    Paint paint;
+    
     DryingProgress progressBar;
     
     GraphicsContext graphics;
@@ -61,25 +65,38 @@ public class SecondaryPresenter {
             }
         });
         
-        Brush brush = new Brush(80);
-        Paint paint = new Paint(Color.DARKGOLDENROD, 30, 1);
-        Fan fan = new Fan(0.2);
-        startGame(paint, brush, fan);
+        brush = new Brush(80);
+        paint = new Paint(Color.DARKGOLDENROD, 30, 1);
+        fan = new Fan(0.2);
+        startGame();
     }
     
     public void newGame() {
         running = false;
         Bounds bounds = canvas.getBoundsInLocal();
         graphics.clearRect(bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
-        
-        Brush brush = new Brush(50);
-        Paint paint = new Paint(Color.ALICEBLUE, 30, 5);
-        Fan fan = new Fan(0.5);
-        startGame(paint, brush, fan);
+        startGame();
     }
     
+    public void setFan(Fan fan) {
+        if (!appThread.isAlive()) {
+            this.fan = fan;
+        }
+    }
     
-    public void startGame(Paint paint, Brush brush, Fan fan) {
+    public void setFan(Brush brush) {
+        if (!appThread.isAlive()) {
+            this.brush = brush;
+        }
+    }
+    
+    public void setFan(Paint paint) {
+        if (!appThread.isAlive()) {
+            this.paint = paint;
+        }
+    }
+    
+    public void startGame() {
         brushRadius = brush.getRadius();
         counter.reset(paint.getPointIncrement());
         progressBar.reset(paint.getDryingSpeed());
