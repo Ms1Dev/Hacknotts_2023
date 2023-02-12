@@ -5,7 +5,6 @@ import com.gluonhq.charm.glisten.application.AppManager;
 import com.gluonhq.charm.glisten.control.AppBar;
 import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
-import java.util.ArrayList;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,8 +13,6 @@ import javafx.scene.Cursor;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
@@ -58,7 +55,7 @@ public class SecondaryPresenter {
         running = false;
         secondary.setShowTransitionFactory(BounceInRightTransition::new);
         counter = new ScoreCounter(userScore);    
-        progressBar = new DryingProgress(this);
+        progressBar = new DryingProgress();
         secondary.setTop(counter);
         secondary.setBottom(progressBar);
         
@@ -72,9 +69,9 @@ public class SecondaryPresenter {
             }
         });
                
-        brush = new Brush(Brush.level.FOUR);
-        paint = new Paint(Color.DARKGOLDENROD, 30, 1);
-        fan = new Fan(0.2);
+        brush = new Brush(Brush.level.ONE);
+        paint = new Paint(Paint.level.ONE);
+        fan = new Fan(Fan.level.ONE);
 
         brushAnimation = brush.getAnimation();
         fanAnimation = fan.getAnimation();
@@ -114,7 +111,6 @@ public class SecondaryPresenter {
     public void startGame() {
         brushRadius = brush.getRadius();
         counter.reset(paint.getPointIncrement());
-        progressBar.reset(paint.getDryingSpeed());
         
         appThread = new AppThread(counter,progressBar,this);
         
@@ -204,11 +200,11 @@ public class SecondaryPresenter {
         WritableImage image = canvas.snapshot(new SnapshotParameters(), null);
         PixelReader pReader = image.getPixelReader();
         
-        while(x < bounds.getMaxX() - (2 * brushRadius)) {
-            x += brushRadius;
+        while(x < bounds.getMaxX() - (2 * 25)) {
+            x += 25;
             int y = (int) bounds.getMinY();
-            while(y < bounds.getMaxY() - brushRadius) {
-                y += brushRadius;
+            while(y < bounds.getMaxY() - 25) {
+                y += 25;
                 if (pReader.getColor(x, y).equals(Color.valueOf("0xffffffff"))){
                     return false;
                 }

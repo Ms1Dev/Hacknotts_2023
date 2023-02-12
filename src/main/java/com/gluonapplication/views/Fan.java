@@ -12,10 +12,33 @@ import java.util.ArrayList;
  */
 public class Fan {
     private double speedIncreasePrcnt;
-    private int fanLevel = 0;
+    enum level {
+        ONE,
+        TWO,
+        THREE,
+        FOUR
+    }
+    private level lvl;
 
-    public Fan(double speedIncreasePrcnt) {
-        this.speedIncreasePrcnt = speedIncreasePrcnt;
+    public Fan(level lvl) {
+        this.lvl = lvl;
+        switch(lvl) {
+            case ONE:
+                this.speedIncreasePrcnt = .4;
+                break;
+            case TWO:
+                this.speedIncreasePrcnt = .6;
+                break;
+            case THREE:
+                this.speedIncreasePrcnt = .8;
+                break;
+            case FOUR:
+                this.speedIncreasePrcnt = 1.0;
+                break;
+            default:
+                this.speedIncreasePrcnt = 0.2;
+                break;
+        }
     }
 
     public double getSpeedIncreasePrcnt() {
@@ -23,19 +46,19 @@ public class Fan {
     }
     
     public AnimatedSprite getAnimation() {
-        return selectAnimation(fanLevel);
+        return selectAnimation(lvl);
     }
     
-    private static AnimatedSprite selectAnimation(int id) {
+    private static AnimatedSprite selectAnimation(level lvl) {
          ArrayList<String> imageUrls = new ArrayList<>();
-        switch (id) {
-            case 0:             
+        switch (lvl) {
+            case ONE:             
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-003.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Hand/Fan-Hand-004.png");
                 break;
-            case 1:
+            case TWO:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");

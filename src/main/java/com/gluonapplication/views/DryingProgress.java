@@ -12,24 +12,21 @@ import javafx.application.Platform;
  * @author mdswa
  */
 public class DryingProgress extends ProgressBar {
-    int dryingSpeed;
+    private final int DRYING_SPEED = 50;
     double progress;
-    SecondaryPresenter presenter;
    
-    DryingProgress(SecondaryPresenter presenter) {
-        this.presenter = presenter;
+    DryingProgress() {
         this.setPrefHeight(40);
         this.setPrefWidth(350);
     }
     
     public void reset(int dryingSpeed) {
-        this.dryingSpeed = dryingSpeed;
         progress = 0.0;
         this.setProgress(progress);
     }
     
     public boolean updateProgress() {
-        progress += dryingSpeed / 1000.0;
+        progress += DRYING_SPEED / 1000.0;
         this.setProgress(progress);
         return (progress >= 1.0);
     }

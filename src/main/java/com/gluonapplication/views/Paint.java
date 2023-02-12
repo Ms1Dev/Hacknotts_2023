@@ -11,38 +11,49 @@ import javafx.scene.paint.Color;
  * @author mdswa
  */
 public class Paint {
+    static enum level {
+        ONE,
+        TWO,
+        THREE,
+        FOUR
+    }
     Color colour;
-    int dryingSpeed, pointIncrement;
+    int pointIncrement;
+    private level lvl;
 
-    public Paint(Color colour, int dryingSpeed, int pointIncrement) {
-        this.colour = colour;
-        this.dryingSpeed = dryingSpeed;
-        this.pointIncrement = pointIncrement;
+    public Paint(level lvl) {
+        this.lvl = lvl;
+        
+        switch(lvl) {
+            case ONE:
+                this.pointIncrement = 10;
+                this.colour = Color.SPRINGGREEN;
+                break;
+            case TWO:
+                this.pointIncrement = 20;
+                this.colour = Color.CHOCOLATE;
+                break;
+            case THREE:
+                this.pointIncrement = 30;
+                this.colour = Color.DARKCYAN;
+                break;
+            case FOUR:
+                this.pointIncrement = 40;
+                this.colour = Color.FUCHSIA;
+                break;
+            default:
+                this.pointIncrement = 10;
+                this.colour = Color.BISQUE;
+                break;
+        }
+        
     }
 
     public Color getColour() {
         return colour;
     }
 
-    public void setColour(Color colour) {
-        this.colour = colour;
-    }
-
-    public int getDryingSpeed() {
-        return dryingSpeed;
-    }
-
-    public void setDryingSpeed(int dryingSpeed) {
-        this.dryingSpeed = dryingSpeed;
-    }
-
     public int getPointIncrement() {
         return pointIncrement;
-    }
-
-    public void setPointIncrement(int pointIncrement) {
-        this.pointIncrement = pointIncrement;
-    }
-    
-    
+    }  
 }

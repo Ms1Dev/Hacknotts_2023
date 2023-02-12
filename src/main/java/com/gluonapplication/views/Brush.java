@@ -11,18 +11,20 @@ import java.util.ArrayList;
  * @author mdswa
  */
 public class Brush {
-    enum level {
+    
+    static enum level {
         ONE,
         TWO,
         THREE,
         FOUR
     }
+    private level lvl;
     
     private int radius;
-    private int fanLevel = 0;
 
-    public Brush(level l) {
-        switch(l) {
+    public Brush(level lvl) {
+        this.lvl = lvl;
+        switch(lvl) {
             case ONE:
                 this.radius = 10;
                 break;
@@ -47,8 +49,8 @@ public class Brush {
         return radius;
     }
 
-    public void setRadius(level l) {
-        switch(l) {
+    public void setRadius(level lvl) {
+        switch(lvl) {
             case ONE:
                 this.radius = 10;
                 break;
@@ -68,22 +70,23 @@ public class Brush {
     }
     
     public AnimatedSprite getAnimation() {
-        return selectAnimation(fanLevel);
+        return selectAnimation(this.lvl);
     }
     
-    private static AnimatedSprite selectAnimation(int id) {
-         ArrayList<String> imageUrls = new ArrayList<>();
-        switch (id) {
-            case 0:             
+    private static AnimatedSprite selectAnimation(level lvl) {
+        ArrayList<String> imageUrls = new ArrayList<>();
+        switch (lvl) {
+            case ONE:             
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Hand/Brush-Hand-001.png");
                 break;
-            case 1:
+            case TWO:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png");
                 break;
-            case 2:
+            case THREE:
                 imageUrls.add("file:./src/main/resources/Assets/SPRITES/Brush-Painter/Brush-Painer-001.png");
                 break;
         }
+        
         return new AnimatedSprite(imageUrls);
     }
     
