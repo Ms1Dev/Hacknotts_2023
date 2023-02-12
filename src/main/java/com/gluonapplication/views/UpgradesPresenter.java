@@ -7,6 +7,7 @@ import com.gluonhq.charm.glisten.mvc.View;
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 
@@ -17,6 +18,13 @@ public class UpgradesPresenter {
 
     @FXML
     private Label label;
+    
+    @FXML
+    private Button handButton;
+    @FXML
+    private Button highlighterButton;
+    @FXML
+    private Button brushButton;
 
     public void initialize() {
         upgrades.setShowTransitionFactory(BounceInLeftTransition::new);
@@ -28,8 +36,6 @@ public class UpgradesPresenter {
                 appBar.setNavIcon(MaterialDesignIcon.MENU.button(e -> 
                         AppManager.getInstance().getDrawer().open()));
                 appBar.setTitleText("Upgrades");
-//                appBar.getActionItems().add(MaterialDesignIcon.SEARCH.button(e -> 
-//                        System.out.println("Search")));
             }
         });   
     }
@@ -40,8 +46,18 @@ public class UpgradesPresenter {
         if (user.getUserScore() >= 100) {
             user.setUserScore(user.getUserScore() - 100);
             user.getBrush().incLevel();
+            handButton.setDisable(true);
         }
-        
     }
     
+    
+    @FXML
+    private void buyHighlighter() {
+        // Stub
+    }
+    
+    @FXML
+    private void buyBrush() {
+        // Stub
+    }
 }

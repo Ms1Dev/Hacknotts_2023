@@ -47,7 +47,7 @@
                                     <Image url="@../../../Assets/SPRITES/Brush-Hand/Brush-Hand-001.png" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" onAction="#buyHand" prefHeight="35.0" prefWidth="101.0" text="Hand | 100" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="handButton" mnemonicParsing="false" onAction="#buyHand" prefHeight="35.0" prefWidth="101.0" text="Hand | 100" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <GridPane>
@@ -59,7 +59,7 @@
                               <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Highlighter" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="highlighterButton" mnemonicParsing="false" onAction="#buyHighlighter" prefHeight="35.0" prefWidth="122.0" text="Highlighter | 300" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                               <ImageView fitHeight="78.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.halignment="CENTER">
                                  <image>
                                     <Image url="@../../../Assets/SPRITES/Brush-Highlighter/Brush-Highlighter.png" />
@@ -81,7 +81,7 @@
                                     <Image url="@../../../Assets/SPRITES/Brush-Painter/Brush-Painer-001.png" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="101.0" text="Brush" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                              <Button fx:id="brushButton" mnemonicParsing="false" onAction="#buyBrush" prefHeight="35.0" prefWidth="101.0" text="Brush | 600" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <Label text="Fans">
