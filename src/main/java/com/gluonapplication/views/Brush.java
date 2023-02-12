@@ -4,12 +4,15 @@
  */
 package com.gluonapplication.views;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mdswa
  */
 public class Brush {
     private int radius;
+    private int fanLevel = 0;
 
     public Brush(int radius) {
         this.radius = radius;
@@ -21,6 +24,32 @@ public class Brush {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+    
+    public AnimatedSprite getAnimation() {
+        return selectAnimation(fanLevel);
+    }
+    
+    private static AnimatedSprite selectAnimation(int id) {
+         ArrayList<String> imageUrls = new ArrayList<>();
+        switch (id) {
+            case 0:             
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                break;
+            case 1:
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                break;
+            case 2:
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-001.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-002.png");
+                imageUrls.add("file:C:/Melon/NetBeans/GluonApplication/src/main/resources/Assets/SPRITES/Fan-Ped/Fan-Ped-003.png");
+                break;
+        }
+        return new AnimatedSprite(imageUrls);
     }
     
 }
