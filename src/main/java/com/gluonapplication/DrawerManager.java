@@ -20,13 +20,13 @@ public class DrawerManager {
     public static void buildDrawer(AppManager app) {
         NavigationDrawer drawer = app.getDrawer();
         
-        NavigationDrawer.Header header = new NavigationDrawer.Header("Gluon Application",
-                "Multi View Project",
+        NavigationDrawer.Header header = new NavigationDrawer.Header("Paint Drying Simulator",
+                "Watch Paint Dry!",
                 new Avatar(21, new Image(DrawerManager.class.getResourceAsStream("/icon.png"))));
         drawer.setHeader(header);
         
-        final Item primaryItem = new ViewItem("Primary", MaterialDesignIcon.HOME.graphic(), PRIMARY_VIEW, ViewStackPolicy.SKIP);
-        final Item secondaryItem = new ViewItem("Secondary", MaterialDesignIcon.DASHBOARD.graphic(), SECONDARY_VIEW);
+        final Item primaryItem = new ViewItem("Upgrades", MaterialDesignIcon.ARROW_UPWARD.graphic(), PRIMARY_VIEW, ViewStackPolicy.SKIP);
+        final Item secondaryItem = new ViewItem("Wall", MaterialDesignIcon.WALLPAPER.graphic(), SECONDARY_VIEW);
         drawer.getItems().addAll(primaryItem, secondaryItem);
         
         if (Platform.isDesktop()) {
